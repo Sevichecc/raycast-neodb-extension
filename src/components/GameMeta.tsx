@@ -1,6 +1,7 @@
 import { Game } from "../types";
 import { Detail } from "@raycast/api";
 import { renderGenre } from "../ItemDetail";
+
 interface GameMetaProps {
   data: Game;
   rating: number;

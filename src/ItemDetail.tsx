@@ -1,6 +1,6 @@
 import useDetail from "./hooks/useDetail";
 import { Item, Podcast, Movie, Performance, Album, Game, Book, ItemType, TV, Category } from "./types";
-import { Detail } from "@raycast/api";
+import { Action, ActionPanel, Detail } from "@raycast/api";
 import BookMeta from "./components/BookMeta";
 import MovieMeta from "./components/MovieMeta";
 import TVMeta from "./components/TVMeta";
@@ -53,12 +53,18 @@ const ItemDetail: React.FC<{ item: Item }> = ({ item }) => {
 
   ${brief}
   `;
+
   return (
     <Detail
       isLoading={isLoading}
       markdown={content + ((data as Album)?.track_list || "")}
       navigationTitle={display_title}
       metadata={data && renderMetaData(data, category, rating)}
+      actions={
+        <ActionPanel>
+          <Action.OpenInBrowser url={`https://neodb.social${item.url}`} title="Open in Browser" />
+        </ActionPanel>
+      }
     />
   );
 };

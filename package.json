@@ -2,11 +2,12 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "neodb",
   "title": "NeoDB",
-  "description": "A extension for NeoDB",
+  "description": "Search NeoDB items and view item details",
   "icon": "command-icon.png",
   "author": "SevicheCC",
   "categories": [
-    "Applications"
+    "Web",
+    "Media"
   ],
   "license": "MIT",
   "commands": [

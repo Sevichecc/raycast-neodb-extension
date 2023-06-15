@@ -1,6 +1,6 @@
 import { Movie } from "../types";
 import { Detail } from "@raycast/api";
-
+import { renderGenre } from "../ItemDetail";
 interface MovieMetaProps {
   data: Movie;
   rating: number;
@@ -14,13 +14,7 @@ const MovieMeta: React.FC<MovieMetaProps> = ({ data, rating }) => {
     <Detail.Metadata>
       {orig_title && <Detail.Metadata.Label title="Original Title" text={orig_title} />}
       {other_title.length !== 0 && <Detail.Metadata.Label title="Other Title" text={other_title.join(",")} />}
-      {genre.length !== 0 && (
-        <Detail.Metadata.TagList title="Genre">
-          {genre.map((genre) => (
-            <Detail.Metadata.TagList.Item text={genre} color={"#eed535"} key={genre} />
-          ))}
-        </Detail.Metadata.TagList>
-      )}
+      {renderGenre(genre)}
       {rating && <Detail.Metadata.Label title="Rating" text={rating.toString()} />}
       {director.length !== 0 && <Detail.Metadata.Label title="Director" text={director.join(", ")} />}
       {playwright.length !== 0 && <Detail.Metadata.Label title="Playwright" text={playwright.join(" ")} />}
